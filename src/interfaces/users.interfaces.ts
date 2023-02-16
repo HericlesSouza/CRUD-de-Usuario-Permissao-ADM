@@ -1,13 +1,10 @@
 import { QueryResult } from "pg"
+import { z } from "zod/lib"
+import {createUserSchema, queryResultUser, userOmitPassword} from "../schemas/users.schemas"
 
-export interface iUserData {
-    id?: number,
-    name: string,
-    email: string,
-    password: string,
-    admin: boolean,
-    active: boolean
-}
+export type iUser = z.infer<typeof createUserSchema>
+export type resultUser = z.infer<typeof queryResultUser>
+export type returnUserOmitPassword = z.infer<typeof userOmitPassword>
 
-export type iUserResponseData = Omit<iUserData, 'password'>
-export type iUserResult = QueryResult<iUserResponseData>
+export type iUserQueryResult = QueryResult<resultUser>
+
