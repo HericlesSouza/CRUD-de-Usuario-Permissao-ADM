@@ -42,6 +42,7 @@ yarn dev
     <li>PG</li>
     <li>Zod (para validação de dados)</li>
     <li>Dotenv</li>
+    <li>PostgreSQL</li>
 </ul>
 
 #
